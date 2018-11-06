@@ -24,10 +24,18 @@ export default class CityPage extends Component {
   }
   
   render() {
+    const city = this.state.city
+    const cityPosts = this.state.posts.map((post, i) => {
+      return (
+        <div>
+          {post.title} | {post.body}
+        </div>
+      )
+    })
     return (
       <div>
         <h1>City Page</h1><hr/>
-
+        {cityPosts}
       </div>
     )
   }
