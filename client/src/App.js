@@ -15,6 +15,7 @@ class App extends Component {
             <Route exact path='/' component={LandingPage}/>
             <Route exact path='/signin' component={SignUpPage}/>
             <Route exact path='/user/:userId' component={ProfilePage}/>
+            <Route exact path='/cities' component={CityPage}/>
           </Switch>
         </div>
       </Router>
