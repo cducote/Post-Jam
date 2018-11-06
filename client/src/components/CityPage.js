@@ -15,7 +15,7 @@ export default class CityPage extends Component {
     const postResponse = await axios.get(`/api/cities/${cityId}/posts`)
     this.setState({
       city: cityResponse.data,
-      posts: postResponse.data.posts
+      posts: postResponse.data
     })
   }
 
