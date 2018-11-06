@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export default class SignUpPage extends Component {
 
   state = {
-    users: {}
+    users: []
   }
 
   getUsers = async() => {
@@ -15,10 +16,19 @@ export default class SignUpPage extends Component {
   componentDidMount = async () => {
     await this.getUsers()
   }
+
+
   render() {
+    const userList = this.state.users.map((user, i) => {
+      return (
+        <Link to={`/user/${user.id}`}>{user.name}</Link>
+      )
+    })
     return (
       <div>
         <h1>Sing in</h1><hr/>
+        
+        {userList}
       </div>
     )
   }
