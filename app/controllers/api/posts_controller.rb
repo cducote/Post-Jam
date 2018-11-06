@@ -2,8 +2,11 @@ class Api::PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @city = City.find(params[:city_id])
+    @user_posts = @user.posts
+    @city_posts = @city.posts
     render json: @posts
+
   end
 
   # def show

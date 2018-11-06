@@ -1,35 +1,33 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-
 
 export default class CityPage extends Component {
 
   state = {
-    cities: []
+    city: {},
+    posts: []
   }
 
-  getCities = async () => {
-    const response = await axios.get('/api/cities')
-    this.setState({ cities: response.data })
+  getCityAndPosts = async () => {
+    const cityId = this.props.match.params.cityId
+    const cityResponse = await axios.get(`/api/cities/${cityId}`)
+    const postResponse = await axios.get(`/api/cities/${cityId}/posts`)
+    this.setState({
+      city: cityResponse.data,
+      posts: postResponse.data.posts
+    })
   }
 
-  componentDidMount = async () => {
-    await this.getCities()
+  componentDidMount = () => {
+    this.getCityAndPosts()
   }
-
+  
   render() {
-      const cityList = this.state.cities.map((city, i) => {
-        return (
-          <Link to={`/city/${city.id}`}>{city.name}</Link>
-        )
-      })
-    
     return (
       <div>
         <h1>City Page</h1><hr/>
-        {cityList}
+
       </div>
     )
   }

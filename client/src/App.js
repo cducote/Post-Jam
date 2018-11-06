@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import LandingPage from './components/LandingPage'
 import SignUpPage from './components/SignUpPage';
 import ProfilePage from './components/ProfilePage';
+import CitiesPage from './components/CitiesPage';
 import CityPage from './components/CityPage';
 
 
@@ -16,7 +17,8 @@ class App extends Component {
             <Route exact path='/' component={LandingPage}/>
             <Route exact path='/signin' component={SignUpPage}/>
             <Route exact path='/user/:userId' component={ProfilePage}/>
-            <Route exact path='/cities' component={CityPage}/>
+            <Route exact path='/cities' component={CitiesPage}/>
+            <Route exact path='/city/:cityId' component={CityPage}/>
           </Switch>
         </div>
       </Router>
