@@ -23,11 +23,14 @@ export default class ProfilePage extends Component {
     const userId = this.props.match.params.userId
     const response = await axios.get(`/api/users/${userId}`)
     this.setState({ user: response.data })
+    this.props.updateUser(this.state.user)
   }
 
   componentDidMount = () => {
     this.getUser()
   }
+
+
 
   render() {
     const userId = this.state.user.id
