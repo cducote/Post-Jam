@@ -34,7 +34,7 @@ export default class CityPage extends Component {
     })
     return (
       <div>
-        <h1>City Page</h1><hr/>
+        <h1>{city.name} Page</h1><hr/>
         {cityPosts}
       </div>
     )

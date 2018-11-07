@@ -5,6 +5,7 @@ import SignUpPage from './components/SignUpPage';
 import ProfilePage from './components/ProfilePage';
 import CitiesPage from './components/CitiesPage';
 import CityPage from './components/CityPage';
+import SinglePostPage from './components/SinglePostPage';
 
 
 
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path='/user/:userId' component={ProfilePage}/>
             <Route exact path='/cities' component={CitiesPage}/>
             <Route exact path='/city/:cityId' component={CityPage}/>
+            <Route exact path='/city/:cityId/:postId' component={SinglePostPage}/>
           </Switch>
         </div>
       </Router>
