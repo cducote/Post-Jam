@@ -8,7 +8,6 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    # @city = City.find(params[:city_id])
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create!(comment_params)
     @comments = @post.comments
@@ -18,6 +17,6 @@ class Api::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:post).permit(:body)
+    params.require(:newComment).permit(:body, :post_id, :user_id)
   end
 end

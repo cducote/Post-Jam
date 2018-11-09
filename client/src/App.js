@@ -22,6 +22,7 @@ class App extends Component {
   render() {
     const ProfileComponent = (props) => <ProfilePage { ...props } updateUser={this.updateUser}/>
     const CityComponent = (props) => <CityPage { ...props } currentUser={this.state.currentUser}/>
+    const PostComponent = (props) => <SinglePostPage { ...props } currentUser={this.state.currentUser}/>
 
     return (
       <Router>
@@ -32,7 +33,7 @@ class App extends Component {
             <Route exact path='/user/:userId' render={ProfileComponent}/>
             <Route exact path='/cities' component={CitiesPage}/>
             <Route exact path='/city/:cityId' render={CityComponent}/>
-            <Route exact path='/city/:cityId/:postId' component={SinglePostPage}/>
+            <Route exact path='/city/:cityId/:postId' render={PostComponent}/>
           </Switch>
         </div>
       </Router>

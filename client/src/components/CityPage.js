@@ -59,10 +59,12 @@ export default class CityPage extends Component {
     const city = this.state.city
     const cityPosts = this.state.posts.map((post, i) => {
       return (
+        <Link to={`/city/${city.id}/${post.id}`} key={i}>
         <div>
           {post.title} | {post.body}
           <hr/>
         </div>
+        </Link>
       )
     })
     return (

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Form, Button, Input } from 'semantic-ui-react'
 import axios from 'axios'
 
 export default class SinglePostPage extends Component {
@@ -10,23 +11,6 @@ export default class SinglePostPage extends Component {
       body: ''
     }
   }
-  handleChange = (event) => {
-    const newComment = { ...this.state.newComment }
-    newComment[event.target.name] = event.target.value
-    this.setState({ newComment })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const newComment = { ...this.state.newPost }
-    this.props.addNewComment(newComment)
-    this.setState({
-      newComment: {
-        body: ''
-      }
-    })
-    console.log(newComment)
-  }
 
   getPostAndComments = async () => {
     const postId = this.props.match.params.postId
@@ -34,7 +18,7 @@ export default class SinglePostPage extends Component {
     const postResponse = await axios.get(`/api/cities/${cityId}/posts/${postId}`)
     const commentResponse = await axios.get(`/api/cities/${cityId}/posts/${postId}/comments`)
     this.setState({
-      post:postResponse.data,
+      post: postResponse.data,
       comments: commentResponse.data,
     })
   }
@@ -46,12 +30,34 @@ export default class SinglePostPage extends Component {
   addNewComment = async (newComment) => {
     const cityId = this.props.match.params.cityId
     const postId = this.props.match.params.postId
-    await axios.post(`/api/cities/${cityId}/posts/${postId}`, newComment)
+    await axios.post(`/api/cities/${cityId}/posts/${postId}/comments`, {
+      newComment,
+    })
     this.getPostAndComments()
+  }
+
+  handleChange = (event) => {
+    const newComment = { ...this.state.newComment }
+    newComment[event.target.name] = event.target.value
+    this.setState({ newComment })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const newComment = { ...this.state.newComment }
+    newComment.user_id = this.props.currentUser.id
+    this.addNewComment(newComment)
+    this.setState({
+      newComment: {
+        body: ''
+      }
+    })
+    console.log("Submited")
   }
 
   render() {
     const post = this.state.post
+    const newComment = this.state.newComment
     const comments = this.state.comments.map((comment,i) => {
       return (
         <div>
@@ -71,10 +77,10 @@ export default class SinglePostPage extends Component {
         <div>
           {post.body}
         </div><hr/>
-        <form onSumbit={this.handleSubmit}>
-          <input onChange={this.handleChange} type="text" name="body" value={this.state.newComment.body} placeholder='Write a comment...' height='50%' />
-          <button type='submit' value='Add Comment'>Submit</button>
-        </form>
+          <Form onSubmit={this.handleSubmit}>
+          <Input onChange={this.handleChange} type="text" name="body" value={newComment.body} placeholder='Write a comment...' height='50%' /><br/>
+          <Button color='blue' type='submit' value='Add Comment'>Add Comment</Button>
+          </Form>
         <div>
           <h3> Comments </h3>
         </div>
