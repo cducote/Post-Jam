@@ -6,7 +6,11 @@ export default class CityPage extends Component {
 
   state = {
     city: {},
-    posts: []
+    posts: [],
+    newPost: {
+      title: '',
+      body: ''
+    }
   }
 
   getCityAndPosts = async () => {
@@ -22,13 +26,42 @@ export default class CityPage extends Component {
   componentDidMount = () => {
     this.getCityAndPosts()
   }
-  
+
+  addNewPost = async (newPost) => {
+    const cityId = this.props.match.params.cityId
+    await axios.post(`/api/cities/${cityId}/posts`, {
+      newPost,
+    })
+    this.getCityAndPosts()
+  }
+
+  handleChange = (e) => {
+    const newPost = { ...this.state.newPost }
+    newPost[e.target.name] = e.target.value
+    this.setState({ newPost })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const newPost = { ...this.state.newPost }
+    newPost.user_id = this.props.currentUser.id
+    this.addNewPost(newPost)
+    this.setState({
+      newPost: {
+        title: '',
+        body: '',
+      }
+    })
+  }
+
   render() {
+    const newPost = this.state.newPost
     const city = this.state.city
     const cityPosts = this.state.posts.map((post, i) => {
       return (
         <div>
           {post.title} | {post.body}
+          <hr/>
         </div>
       )
     })
@@ -36,6 +69,14 @@ export default class CityPage extends Component {
       <div>
         <h1>{city.name} Page</h1><hr/>
         {cityPosts}
+
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleChange} type='text' name='title' value={newPost.title} placeholder='Title'/><br/>
+            <input onChange={this.handleChange} type='text' name='body' value={newPost.body} placeholder='Body'/><br/>
+            <button type='submit' value='Add Post'>Submit</button>
+          </form>
+        </div>
       </div>
     )
   }

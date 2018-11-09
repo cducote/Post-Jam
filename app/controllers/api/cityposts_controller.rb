@@ -13,15 +13,18 @@ class Api::CitypostsController < ApplicationController
 
   def create
     @city = City.find(params[:city_id])
-    
     @citypost = @city.posts.create!(city_post_params)
     @cityposts = @city.posts
     render json: @cityposts
   end
 
+  def destroy
+    
+  end
+
   private
 
   def city_post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:newPost).permit(:title, :body, :user_id, :city_id)
   end
 end

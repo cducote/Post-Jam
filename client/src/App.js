@@ -20,8 +20,9 @@ class App extends Component {
   }
 
   render() {
-    // const SignUpComponent = (props) => <SignUpPage { ...props } updateUser={this.updateUser}/>
     const ProfileComponent = (props) => <ProfilePage { ...props } updateUser={this.updateUser}/>
+    const CityComponent = (props) => <CityPage { ...props } currentUser={this.state.currentUser}/>
+
     return (
       <Router>
         <div>
@@ -30,7 +31,7 @@ class App extends Component {
             <Route exact path='/signin' component={SignUpPage}/>
             <Route exact path='/user/:userId' render={ProfileComponent}/>
             <Route exact path='/cities' component={CitiesPage}/>
-            <Route exact path='/city/:cityId' component={CityPage}/>
+            <Route exact path='/city/:cityId' render={CityComponent}/>
             <Route exact path='/city/:cityId/:postId' component={SinglePostPage}/>
           </Switch>
         </div>

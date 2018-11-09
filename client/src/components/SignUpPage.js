@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { Form, Button, Modal } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+// const StyledForm = styled(Form)`
+//   &&& {
+//     width: 30vw;
+//     margin: auto;
+//   }
+// `
 
 export default class SignUpPage extends Component {
 
@@ -26,7 +35,9 @@ export default class SignUpPage extends Component {
     })
     return (
       <div>
-        <h1>Sing in</h1><hr/>
+        <h1>Sing in</h1>
+        <p>Don't See your name below? <button onclick={this.handleSubmit}>Sign Up</button> to get posting.</p>
+        <hr/>
         
         {userList}
       </div>

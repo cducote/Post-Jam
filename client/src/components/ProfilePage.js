@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 
 const Img = styled.img`
@@ -48,6 +49,7 @@ export default class ProfilePage extends Component {
           <li>location: {user.location}</li>
           <li>bio: {user.bio}</li>
         </div>
+        <Link to='/cities'>Cities</Link>
       </div>
     )
   }
