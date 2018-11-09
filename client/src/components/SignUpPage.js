@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { Button, Modal } from 'semantic-ui-react'
-import styled from 'styled-components'
 import NewUserForm from './NewUserForm';
 
 // const StyledForm = styled(Form)`
@@ -28,7 +26,7 @@ export default class SignUpPage extends Component {
   }
 
   addNewUser = async (newUser) => {
-    const userId = this.props.match.params.userId
+    // const userId = this.props.match.params.userId
     await axios.post(`/api/users`, newUser)
     this.getUsers()
   }

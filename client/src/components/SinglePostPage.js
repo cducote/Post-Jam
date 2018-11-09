@@ -60,7 +60,7 @@ export default class SinglePostPage extends Component {
     const newComment = this.state.newComment
     const comments = this.state.comments.map((comment,i) => {
       return (
-        <div>
+        <div key={i}>
           <div>
             {comment.body}
           </div>

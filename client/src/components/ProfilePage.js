@@ -34,7 +34,7 @@ export default class ProfilePage extends Component {
 
 
   render() {
-    const userId = this.state.user.id
+    // const userId = this.state.user.id
     const user = this.state.user
     return (
       <div>

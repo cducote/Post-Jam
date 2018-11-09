@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+
+const Post = styled.div`
+  border: 1px solid black;
+  margin: 10px;
+  color: black;
+    .title {
+      font-size: 20px;
+      padding: 10px;
+      border-bottom: 1px solid black;
+    }
+    .body {
+      font-size: 16px;
+      padding: 10px;
+
+    }
+`
+
 
 export default class CityPage extends Component {
 
@@ -45,6 +63,7 @@ export default class CityPage extends Component {
     e.preventDefault()
     const newPost = { ...this.state.newPost }
     newPost.user_id = this.props.currentUser.id
+    newPost.user_pic = this.props.currentUser.pic
     this.addNewPost(newPost)
     this.setState({
       newPost: {
@@ -60,10 +79,14 @@ export default class CityPage extends Component {
     const cityPosts = this.state.posts.map((post, i) => {
       return (
         <Link to={`/city/${city.id}/${post.id}`} key={i}>
-        <div>
-          {post.title} | {post.body}
-          <hr/>
-        </div>
+        <Post>
+          <div className='title'>
+          {post.title}
+          </div>
+          <div className='body'>
+          {post.body}
+          </div>
+        </Post>
         </Link>
       )
     })
