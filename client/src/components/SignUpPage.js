@@ -46,9 +46,8 @@ export default class SignUpPage extends Component {
     return (
       <div>
         <h1>Sing in</h1>
-        <p>Don't See your name below? <NewUserForm addNewUser={this.addNewUser}/> to get posting.</p>
+        Don't See your name below? <NewUserForm addNewUser={this.addNewUser}/> to get posting.
         <hr/>
-        
         {userList}
       </div>
     )
