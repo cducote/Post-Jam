@@ -37,6 +37,15 @@ const Post = styled.div`
 
     }
 `
+const TopRight = styled.div`
+    display: flex;
+    flex-direction: column;
+    .sub-text {
+      font-size: 12px;
+      margin-left: 5px;
+      color: grey;
+    }
+`
 
 
 export default class CityPage extends Component {
@@ -102,7 +111,12 @@ export default class CityPage extends Component {
           <div className='title-container'>
             <div className='top'>
               <img src={post.pic} alt={post.pic}/> 
-              <div className='user-name'>{post.name}</div>
+
+              <TopRight> 
+                <div className='user-name'>{post.name}</div>
+                <div className='sub-text'>{post.main_instrument}</div>
+              </TopRight>
+             
             </div>
             <div className='title'>
               {post.title}
