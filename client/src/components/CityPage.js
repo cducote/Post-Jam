@@ -7,14 +7,33 @@ const Post = styled.div`
   border: 1px solid black;
   margin: 10px;
   color: black;
-    .title {
-      font-size: 20px;
+    .title-container {
       padding: 10px;
-      border-bottom: 1px solid black;
+      font-size: 20px;
+      .top {
+        display: flex;
+        align-items: flex-start;
+        .user-name {
+          font-size: 15px;
+          margin-left: 5px;
+        }
+      }
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+      .title {
+          display: flex;
+          margin-top: 8px;
+          font-size: 18px;
+          font-weight: bold;
+        }
     }
     .body {
-      font-size: 16px;
-      padding: 10px;
+      font-size: 14px;
+      padding-left: 10px;
+      padding-bottom: 10px;
 
     }
 `
@@ -80,8 +99,14 @@ export default class CityPage extends Component {
       return (
         <Link to={`/city/${city.id}/${post.id}`} key={i}>
         <Post>
-          <div className='title'>
-          {post.title}
+          <div className='title-container'>
+            <div className='top'>
+              <img src={post.pic} alt={post.pic}/> 
+              <div className='user-name'>{post.name}</div>
+            </div>
+            <div className='title'>
+              {post.title}
+            </div>
           </div>
           <div className='body'>
           {post.body}
@@ -94,7 +119,6 @@ export default class CityPage extends Component {
       <div>
         <h1>{city.name} Page</h1><hr/>
         {cityPosts}
-
         <div>
           <form onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type='text' name='title' value={newPost.title} placeholder='Title'/><br/>
