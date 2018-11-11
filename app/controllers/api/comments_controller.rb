@@ -1,10 +1,12 @@
 class Api::CommentsController < ApplicationController
   
   def index
-    @city = City.find(params[:city_id])
-    @post = Post.find(params[:post_id])
-    @post_comments = Post.find(params[:post_id]).comments
-    render json: @post_comments
+    # @city = City.find(params[:city_id])
+    # @post = Post.find(params[:post_id])
+    # @post_comments = Post.find(params[:post_id]).comments
+    query = "SELECT * FROM comments JOIN users ON comments.user_id=users.id;"
+    @comments = ActiveRecord::Base.connection.execute(query)
+    render json: @comments
   end
 
   def create

@@ -1,9 +1,6 @@
 class Api::CitypostsController < ApplicationController
   
   def index
-    # @city = City.find(params[:city_id])
-    # @city_posts = City.find(params[:city_id]).posts
-    # @posts_user = User.find(params[:user_id]).posts
     @city = City.find(params[:city_id])
     query = "SELECT * FROM posts JOIN users ON posts.user_id=users.id WHERE posts.city_id=#{params[:city_id]};"
     @posts = ActiveRecord::Base.connection.execute(query)
