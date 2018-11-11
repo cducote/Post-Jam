@@ -46,7 +46,18 @@ const TopRight = styled.div`
       color: grey;
     }
 `
-
+const CityPicture = styled.img`
+    width: 100vw;
+    height: 50vh;
+`
+const CityPostBanner = styled.div`
+    margin: auto;
+    font-size: 30px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+`
 
 export default class CityPage extends Component {
 
@@ -131,7 +142,8 @@ export default class CityPage extends Component {
     })
     return (
       <div>
-        <h1>{city.name} Page</h1><hr/>
+        <CityPicture src={city.city_img}/>
+        <CityPostBanner>{city.name} Jam Posts</CityPostBanner>
         {cityPosts}
         <div>
           <form onSubmit={this.handleSubmit}>
