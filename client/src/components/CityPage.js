@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Accordion } from 'semantic-ui-react'
 
 const Post = styled.div`
   border: 1px solid black;
@@ -113,16 +112,7 @@ export default class CityPage extends Component {
     })
   }
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps
-    const { activeIndex } = this.state
-    const newIndex = activeIndex === index ? -1 : index
-
-    this.setState({ activeIndex: newIndex })
-  }
-
   render() {
-    const { activeIndex } = this.state
     const newPost = this.state.newPost
     const city = this.state.city
     const cityPosts = this.state.posts.map((post, i) => {
@@ -131,7 +121,7 @@ export default class CityPage extends Component {
         <Post key={i}>
           <div className='title-container'>
             <div className='top'>
-              <img src={post.pic} alt={post.pic}/> 
+              <img src={post.pic} alt={post.name}/> 
 
               <TopRight> 
                 <div className='user-name'>{post.name}</div>
@@ -146,14 +136,6 @@ export default class CityPage extends Component {
           <div className='body'>
           {post.body}
           </div>
-        <Accordion>
-        <Accordion.Title active={activeIndex === 0} index={0} onClick={this.handleClick}>
-          Comments
-        </Accordion.Title>
-        <Accordion.Content active={activeIndex === 0}>
-          {/* {comments} */} comments
-        </Accordion.Content>
-        </Accordion>
         </Post>
        
       )
