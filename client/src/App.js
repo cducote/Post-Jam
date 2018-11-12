@@ -21,6 +21,7 @@ class App extends Component {
 
   render() {
     const ProfileComponent = (props) => <ProfilePage { ...props } updateUser={this.updateUser}/>
+    // const EditProfileComponent = (props) => <EditUserForm { ...props } currentUser={this.state.currentUser}/>
     const CityComponent = (props) => <CityPage { ...props } currentUser={this.state.currentUser}/>
     const PostComponent = (props) => <SinglePostPage { ...props } currentUser={this.state.currentUser}/>
 

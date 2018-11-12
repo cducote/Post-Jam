@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import styled from 'styled-components'
+import EditUserForm from './EditUserForm'
 import { Link } from 'react-router-dom'
 
 
@@ -31,8 +32,6 @@ export default class ProfilePage extends Component {
     this.getUser()
   }
 
-
-
   render() {
     // const userId = this.state.user.id
     const user = this.state.user
@@ -50,6 +49,14 @@ export default class ProfilePage extends Component {
           <li>bio: {user.bio}</li>
         </div>
         <Link to='/cities'>Cities</Link>
+        <EditUserForm 
+          editUser={this.editUser}
+          user={this.state.user}
+          userId={this.state.user.id}
+          push={this.props.history.push}
+          currentUser={this.setState.currentUser}
+          getUser={this.getUser}
+          />
       </div>
     )
   }

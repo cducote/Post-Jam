@@ -3,13 +3,6 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import NewUserForm from './NewUserForm';
 
-// const StyledForm = styled(Form)`
-//   &&& {
-//     width: 30vw;
-//     margin: auto;
-//   }
-// `
-
 export default class SignUpPage extends Component {
 
   state = {
