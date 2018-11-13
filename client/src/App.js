@@ -35,6 +35,7 @@ class App extends Component {
             <Route exact path='/cities' component={CitiesPage}/>
             <Route exact path='/cities/:cityId' render={CityComponent}/>
             <Route exact path='/cities/:cityId/posts/:postId' render={PostComponent}/>
+            <Route path='/' component={SignUpPage}/>
           </Switch>
         </div>
       </Router>
