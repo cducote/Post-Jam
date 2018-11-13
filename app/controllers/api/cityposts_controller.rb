@@ -2,7 +2,7 @@ class Api::CitypostsController < ApplicationController
   
   def index
     @city = City.find(params[:city_id])
-    query = "SELECT * FROM posts JOIN users ON posts.user_id=users.id WHERE posts.city_id=#{params[:city_id]};"
+    query = "SELECT * FROM users JOIN posts ON posts.user_id=users.Id WHERE posts.city_id=#{params[:city_id]};"
     @posts = ActiveRecord::Base.connection.execute(query)
     render json: @posts
   end

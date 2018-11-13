@@ -115,6 +115,7 @@ export default class CityPage extends Component {
   render() {
     const newPost = this.state.newPost
     const city = this.state.city
+
     const cityPosts = this.state.posts.map((post, i) => {
       return (
         

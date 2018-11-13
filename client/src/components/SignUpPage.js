@@ -36,7 +36,7 @@ export default class SignUpPage extends Component {
     })
     return (
       <div>
-        <h1>Sing in</h1>
+        <h1>Log in Page</h1>
         Don't See your name below? <NewUserForm addNewUser={this.addNewUser}/> to get posting.
         <hr/>
         {userList}

@@ -13,8 +13,25 @@ padding: 10px;
 
 a {
   text-decoration: none;
-  color: black;
+  color: purple;
 }
+`
+const BodyContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+    .title {
+      color: purple;
+      font-size: 80px;
+      align-self: center;
+      line-height: 80px;
+    }
+    .sub-text {
+      padding: 20px;
+      color: gray;
+    }
 `
 
 export default class LandingPage extends Component {
@@ -24,7 +41,10 @@ export default class LandingPage extends Component {
         <Header>
           <Link to="/signin">Log in Sign Up</Link>
         </Header>
-        Im in here!
+        <BodyContainer>
+          <div className='title'>Post Jam</div>
+          <div className='sub-text'>Our mission is to connect local musicians and achieve more art, create an account and get jamming!</div>
+        </BodyContainer>
       </div>
     )
   }
