@@ -19,7 +19,6 @@ export default class SignUpPage extends Component {
   }
 
   addNewUser = async (newUser) => {
-    // const userId = this.props.match.params.userId
     await axios.post(`/api/users`, newUser)
     this.getUsers()
   }

@@ -57,6 +57,23 @@ const CityPostBanner = styled.div`
     text-align: center;
     font-weight: bold;
     padding: 20px;
+    color: purple;
+`
+const NewPostForm = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+`
+const StyledButton = styled.button`
+    align-self: center;
+    width: 100px;
+    color: white;
+    background: purple;
 `
 
 export default class CityPage extends Component {
@@ -145,14 +162,16 @@ export default class CityPage extends Component {
       <div>
         <CityPicture src={city.city_img}/>
         <CityPostBanner>{city.name} Jam Posts</CityPostBanner>
-        {cityPosts}
-        <div>
-          <form onSubmit={this.handleSubmit}>
+        <NewPostForm>
+          <form className='form' onSubmit={this.handleSubmit}>
             <input onChange={this.handleChange} type='text' name='title' value={newPost.title} placeholder='Title'/><br/>
-            <input onChange={this.handleChange} type='text' name='body' value={newPost.body} placeholder='Body'/><br/>
-            <button type='submit' value='Add Post'>Submit</button>
+            <textarea rows="4" cols="50" onChange={this.handleChange} type='text' name='body' value={newPost.body} placeholder='Body'/><br/>
+            <StyledButton type='submit' value='Add Post'>Submit</StyledButton>
           </form>
-        </div>
+        </NewPostForm>
+
+        {cityPosts}
+        
       </div>
     )
   }
