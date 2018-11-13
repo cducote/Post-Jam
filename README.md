@@ -17,6 +17,10 @@ For project 4, I created an app that allows a user to set up a profile on post j
   * React
   * Semantic-Ui
 
+  ![alt text](https://i.imgur.com/jOjKB9s.png "erd")
+
+  ![alt text](https://i.imgur.com/v1Y3b8Z.jpg "wireframe")
+
 ## Future Development
 
   * authorization
