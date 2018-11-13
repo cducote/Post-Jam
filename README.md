@@ -1,24 +1,23 @@
-# README
+# Post Jam
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### A group finder app that connects musicians together in local areas, right now just atlanta
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+For project 4, I created an app that allows a user to set up a profile on post jam, navigate to the city of their choice, and write posts and reply to posts in the form of comments, opening up the dialouge to start new relationships in the local music world.
 
-* System dependencies
+**Heroku site:** <https://post-jam.herokuapp.com/>
 
-* Configuration
+## Technologies Used
 
-* Database creation
+  * Languages - HTML5, CSS3, Javascript
+  * Visual Studio Code
+  * Ruby on Rails
+  * PostgreSQL
+  * React
+  * Semantic-Ui
 
-* Database initialization
+## Future Development
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  * authorization
+  * soundcloud API to link their recorded music
