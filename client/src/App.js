@@ -31,10 +31,10 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={LandingPage}/>
             <Route exact path='/signin' component={SignUpPage}/>
-            <Route exact path='/user/:userId' render={ProfileComponent}/>
+            <Route exact path='/users/:userId' render={ProfileComponent}/>
             <Route exact path='/cities' component={CitiesPage}/>
-            <Route exact path='/city/:cityId' render={CityComponent}/>
-            <Route exact path='/city/:cityId/:postId' render={PostComponent}/>
+            <Route exact path='/cities/:cityId' render={CityComponent}/>
+            <Route exact path='/cities/:cityId/posts/:postId' render={PostComponent}/>
           </Switch>
         </div>
       </Router>

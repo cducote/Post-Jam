@@ -130,7 +130,7 @@ export default class CityPage extends Component {
              
             </div>
             <div className='title'>
-            <Link to={`/city/${city.id}/${post.id}`}> {post.title} </Link>
+            <Link to={`/cities/${city.id}/posts/${post.id}`}> {post.title} </Link>
             </div>
           </div>
           <div className='body'>

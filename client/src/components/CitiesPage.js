@@ -22,7 +22,7 @@ export default class CitiesPage extends Component {
   render() {
       const cityList = this.state.cities.map((city, i) => {
         return (
-          <Link to={`/city/${city.id}`}>{city.name}</Link>
+          <Link to={`/cities/${city.id}`}>{city.name}</Link>
         )
       })
     

@@ -27,7 +27,7 @@ export default class SignUpPage extends Component {
   render() {
     const userList = this.state.users.map((user, i) => {
       return (
-        <Link to={`/user/${user.id}`} key={i}>
+        <Link to={`/users/${user.id}`} key={i}>
           <div>
             {user.name}
           </div>
